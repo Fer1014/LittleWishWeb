@@ -1,11 +1,19 @@
 package pe.edu.upc.aaw.littlewishproject.entities;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+@Entity
+@Table(name = "Universidades")
 
 public class Universidades {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id_Universidad;
+    @Column(name = "nombre_Universidad", nullable = false)
     private String nombre_Universidad;
+    @Column(name = "anio_Inicio", nullable = false)
     private LocalDate anio_Inicio;
+    @Column(name = "anio_Fin", nullable = false)
     private LocalDate anio_Fin;
 
     public Universidades(){
