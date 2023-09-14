@@ -1,4 +1,4 @@
-package pe.edu.upc.aaw.littlewishproject.Entities;
+package pe.edu.upc.aaw.littlewishproject.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
