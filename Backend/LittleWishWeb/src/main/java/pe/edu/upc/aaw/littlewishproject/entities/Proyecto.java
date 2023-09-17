@@ -22,9 +22,9 @@ public class Proyecto {
     //@JoinColumn(name = "idPuntuacion")
     //private Puntuacion puntuacion;
 
-    //@ManyToOne
-    //@JoinColumn(name = "idSolicitud")
-    //private Solicitud solicitud;
+    @ManyToOne
+    @JoinColumn(name = "idSolicitud")
+    private Solicitud solicitud;
     //@OneToOne
     //@JoinColumn(name = "idComentario")
     //private Comentario comentario;
@@ -32,11 +32,12 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(int idProyecto, String descripcion, LocalDate fechaInicio, LocalDate fechaFin) {
+    public Proyecto(int idProyecto, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, Solicitud solicitud) {
         this.idProyecto = idProyecto;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.solicitud = solicitud;
     }
 
     public int getIdProyecto() {
@@ -71,4 +72,11 @@ public class Proyecto {
         this.fechaFin = fechaFin;
     }
 
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
+    }
 }

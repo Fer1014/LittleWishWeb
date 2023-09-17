@@ -1,5 +1,7 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
+import pe.edu.upc.aaw.littlewishproject.entities.Solicitud;
+
 import java.time.LocalDate;
 
 public class ProyectoDTO {
@@ -12,6 +14,7 @@ public class ProyectoDTO {
     private LocalDate fechaInicio;
 
     private LocalDate fechaFin;
+    private Solicitud solicitud;
 
 
 
@@ -52,5 +55,13 @@ public class ProyectoDTO {
 
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 }
