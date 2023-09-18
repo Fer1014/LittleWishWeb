@@ -8,10 +8,10 @@ public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComentario;
-    @Column(name = "Puntos", nullable = false, length = 35)
+    @Column(name = "comentario", nullable = false, length = 35)
     private String comentario;
     @ManyToOne
-    @JoinColumn(name = "Id_Usuario")
+    @JoinColumn(name = "Id_Usuario", nullable = false)
     private Usuario usuario;
 
     public Comentario() {

@@ -11,7 +11,7 @@ public class Puntuacion {
     @Column(name = "Puntos", nullable = false, length = 35)
     private int puntos;
     @ManyToOne
-    @JoinColumn(name = "Id_Usuario")
+    @JoinColumn(name = "Id_Usuario", nullable = false)
     private Usuario usuario;
 
     public Puntuacion(){}
