@@ -30,4 +30,16 @@ public class UniversidadesController {
             return m.map(x, UniversidadesDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping
+    public void eliminar(@RequestParam("id") Integer id) {
+        uS.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody UniversidadesDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Universidades u = m.map(dto, Universidades.class);
+        uS.insert(u);
+    }
 }

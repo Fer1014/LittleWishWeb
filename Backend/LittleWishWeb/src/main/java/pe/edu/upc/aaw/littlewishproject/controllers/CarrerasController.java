@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.CarrerasDTO;
-import pe.edu.upc.aaw.littlewishproject.dtos.UniversidadesDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Carreras;
 import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.ICarrerasService;
 
@@ -30,5 +29,16 @@ public class CarrerasController {
             ModelMapper m = new ModelMapper();
             return m.map(x, CarrerasDTO.class);
         }).collect(Collectors.toList());
+    }
+    @DeleteMapping
+    public void eliminar(@RequestParam("id") Integer id) {
+        cS.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody CarrerasDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Carreras c = m.map(dto, Carreras.class);
+        cS.insert(c);
     }
 }

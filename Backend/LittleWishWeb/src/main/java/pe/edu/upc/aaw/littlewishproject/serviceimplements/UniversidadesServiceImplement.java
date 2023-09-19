@@ -22,4 +22,9 @@ public class UniversidadesServiceImplement implements IUniversidadesService {
     public List<Universidades> list() {
         return uR.findAll();
     }
+
+    @Override
+    public void delete(int ID_Universidades) {
+        uR.deleteById(ID_Universidades);
+    }
 }

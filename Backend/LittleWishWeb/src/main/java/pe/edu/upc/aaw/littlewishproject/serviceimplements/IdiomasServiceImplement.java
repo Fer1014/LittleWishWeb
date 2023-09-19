@@ -22,4 +22,9 @@ public class IdiomasServiceImplement implements IIdiomasService {
     public List<Idiomas> list() {
         return iR.findAll();
     }
+
+    @Override
+    public void delete(int ID_Idiomas) {
+        iR.deleteById(ID_Idiomas);
+    }
 }

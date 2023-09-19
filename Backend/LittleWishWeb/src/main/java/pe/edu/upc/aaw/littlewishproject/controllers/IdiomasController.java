@@ -30,4 +30,16 @@ public class IdiomasController {
             return m.map(x, IdiomasDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping
+    public void eliminar(@RequestParam("id") Integer id) {
+        iS.delete(id);
+    }
+    @PutMapping
+    public void modificar(@RequestBody IdiomasDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Idiomas i = m.map(dto, Idiomas.class);
+        iS.insert(i);
+    }
 }
+
+

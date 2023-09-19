@@ -31,4 +31,14 @@ public class Experiencia_LaboralController {
             return m.map(x, Experiencia_LaboralDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping
+    public void eliminar(@RequestParam("id") Integer id) {
+        elS.delete(id);
+    }
+    @PutMapping
+    public void modificar(@RequestBody Experiencia_LaboralDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Experiencia_Laboral exp = m.map(dto, Experiencia_Laboral.class);
+        elS.insert(exp);
+    }
 }

@@ -7,4 +7,5 @@ import java.util.List;
 public interface ICertificacionesService {
     public  void insert(Certificaciones certifications);
     public List<Certificaciones> list();
+    public void delete(int ID_Certificaciones);
 }

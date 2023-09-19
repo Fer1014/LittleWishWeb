@@ -22,4 +22,9 @@ public class Experiencia_LaboralServiceImplement implements IExperiencia_Laboral
     public List<Experiencia_Laboral> list() {
         return elR.findAll();
     }
+
+    @Override
+    public void delete(int ID_Experiencia_Laboral) {
+        elR.deleteById(ID_Experiencia_Laboral);
+    }
 }

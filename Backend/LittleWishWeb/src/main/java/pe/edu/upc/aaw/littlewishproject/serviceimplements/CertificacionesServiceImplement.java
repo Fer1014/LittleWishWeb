@@ -23,4 +23,9 @@ public class CertificacionesServiceImplement implements ICertificacionesService 
     public List<Certificaciones> list() {
         return cR.findAll();
     }
+
+    @Override
+    public void delete(int ID_Certificaciones) {
+        cR.deleteById(ID_Certificaciones);
+    }
 }

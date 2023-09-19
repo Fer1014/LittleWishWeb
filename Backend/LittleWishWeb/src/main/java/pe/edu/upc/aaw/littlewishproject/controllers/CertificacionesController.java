@@ -30,4 +30,15 @@ public class CertificacionesController {
             return m.map(x, CertificacionesDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping
+    public void eliminar(@RequestParam("id") Integer id) {
+        cS.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody CertificacionesDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Certificaciones c = m.map(dto, Certificaciones.class);
+        cS.insert(c);
+    }
 }

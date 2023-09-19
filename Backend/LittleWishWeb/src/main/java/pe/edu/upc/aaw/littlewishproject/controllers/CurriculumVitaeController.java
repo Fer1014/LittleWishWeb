@@ -14,20 +14,32 @@ import java.util.stream.Collectors;
 @RequestMapping("/CurriculumVitae")
 public class CurriculumVitaeController {
     @Autowired
-    private ICurriculumVitaeService cS;
+    private ICurriculumVitaeService cvS;
 
     @PostMapping
     public void registrar(@RequestBody CurriculumVitaeDTO dto) {
         ModelMapper m = new ModelMapper();
         CurriculumVitae cv = m.map(dto, CurriculumVitae.class);
-        cS.insert(cv);
+        cvS.insert(cv);
     }
 
     @GetMapping
     public List<CurriculumVitaeDTO> listar() {
-        return cS.list().stream().map(x -> {
+        return cvS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, CurriculumVitaeDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @DeleteMapping
+    public void eliminar(@RequestParam("id") Integer id) {
+        cvS.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody CurriculumVitaeDTO dto) {
+        ModelMapper m = new ModelMapper();
+        CurriculumVitae c = m.map(dto, CurriculumVitae.class);
+        cvS.insert(c);
     }
 }

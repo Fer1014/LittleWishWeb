@@ -22,4 +22,9 @@ public class CurriculumVitaeServiceImplement implements ICurriculumVitaeService 
     public List<CurriculumVitae> list() {
         return cvR.findAll();
     }
+
+    @Override
+    public void delete(int ID_CV) {
+        cvR.deleteById(ID_CV);
+    }
 }
