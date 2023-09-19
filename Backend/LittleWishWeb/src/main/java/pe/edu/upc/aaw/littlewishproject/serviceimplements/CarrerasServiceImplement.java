@@ -22,4 +22,9 @@ public class CarrerasServiceImplement implements ICarrerasService {
     public List<Carreras> list() {
         return cR.findAll();
     }
+
+    @Override
+    public void delete(int ID_Carreras) {
+        cR.deleteById(ID_Carreras);
+    }
 }

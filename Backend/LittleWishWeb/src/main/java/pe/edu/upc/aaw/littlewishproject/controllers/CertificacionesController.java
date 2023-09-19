@@ -3,31 +3,31 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.littlewishproject.dtos.CarrerasDTO;
-import pe.edu.upc.aaw.littlewishproject.entities.Carreras;
-import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.ICarrerasService;
+import pe.edu.upc.aaw.littlewishproject.dtos.CertificacionesDTO;
+import pe.edu.upc.aaw.littlewishproject.entities.Certificaciones;
+import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.ICertificacionesService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/carreras")
-public class CarrerasController {
+@RequestMapping("/certifiaciones")
+public class CertificacionesController {
     @Autowired
-    private ICarrerasService cS;
+    private ICertificacionesService cS;
 
     @PostMapping
-    public void registrar(@RequestBody CarrerasDTO dto) {
+    public void registrar(@RequestBody CertificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
-        Carreras c = m.map(dto, Carreras.class);
+        Certificaciones c = m.map(dto, Certificaciones.class);
         cS.insert(c);
     }
 
     @GetMapping
-    public List<CarrerasDTO> listar() {
+    public List<CertificacionesDTO> listar() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, CarrerasDTO.class);
+            return m.map(x, CertificacionesDTO.class);
         }).collect(Collectors.toList());
     }
     @DeleteMapping
@@ -36,9 +36,9 @@ public class CarrerasController {
     }
 
     @PutMapping
-    public void modificar(@RequestBody CarrerasDTO dto) {
+    public void modificar(@RequestBody CertificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
-        Carreras c = m.map(dto, Carreras.class);
+        Certificaciones c = m.map(dto, Certificaciones.class);
         cS.insert(c);
     }
 }

@@ -7,4 +7,5 @@ import java.util.List;
 public interface ICarrerasService {
     public void insert(Carreras carreras);
     public List<Carreras> list();
+    public void delete(int ID_Carreras);
 }

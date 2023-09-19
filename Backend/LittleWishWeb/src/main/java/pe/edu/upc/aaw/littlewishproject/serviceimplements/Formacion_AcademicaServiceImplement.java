@@ -22,4 +22,9 @@ public class Formacion_AcademicaServiceImplement implements IFormacion_Academica
     public List<Formacion_Academica> list() {
         return faR.findAll();
     }
+
+    @Override
+    public void delete(int ID_Formacion_Academica) {
+        faR.deleteById(ID_Formacion_Academica);
+    }
 }
