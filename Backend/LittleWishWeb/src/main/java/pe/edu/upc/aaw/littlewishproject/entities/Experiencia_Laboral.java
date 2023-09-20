@@ -21,20 +21,15 @@ public class Experiencia_Laboral {
     @Column(name = "FechaFinalizado", nullable = false)
     private LocalDate FechaFinalizado;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_CV")
-    private CurriculumVitae curriculumVitae;
-
     public Experiencia_Laboral() {
     }
 
-    public Experiencia_Laboral(int ID_Experiencia_laboral, String empresa, String cargo, LocalDate fechaInicio, LocalDate fechaFinalizado, CurriculumVitae curriculumVitae) {
+    public Experiencia_Laboral(int ID_Experiencia_laboral, String empresa, String cargo, LocalDate fechaInicio, LocalDate fechaFinalizado) {
         this.ID_Experiencia_laboral = ID_Experiencia_laboral;
         Empresa = empresa;
         Cargo = cargo;
         FechaInicio = fechaInicio;
         FechaFinalizado = fechaFinalizado;
-        this.curriculumVitae = curriculumVitae;
     }
 
     public int getID_Experiencia_laboral() {
@@ -75,13 +70,5 @@ public class Experiencia_Laboral {
 
     public void setFechaFinalizado(LocalDate fechaFinalizado) {
         FechaFinalizado = fechaFinalizado;
-    }
-
-    public CurriculumVitae getCurriculumVitae() {
-        return curriculumVitae;
-    }
-
-    public void setCurriculumVitae(CurriculumVitae curriculumVitae) {
-        this.curriculumVitae = curriculumVitae;
     }
 }

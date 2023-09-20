@@ -1,11 +1,13 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
+import pe.edu.upc.aaw.littlewishproject.entities.Carreras;
+import pe.edu.upc.aaw.littlewishproject.entities.Universidades;
 
 public class Formacion_AcademicaDTO {
     private int ID_Formacion_academica;
     private String Nombre_Secundaria;
-    private CurriculumVitae curriculumvitae;
+    private Universidades universidades;
+    private Carreras carreras;
 
     public int getID_Formacion_academica() {
         return ID_Formacion_academica;
@@ -23,11 +25,19 @@ public class Formacion_AcademicaDTO {
         Nombre_Secundaria = nombre_Secundaria;
     }
 
-    public CurriculumVitae getCurriculumvitae() {
-        return curriculumvitae;
+    public Universidades getUniversidades() {
+        return universidades;
     }
 
-    public void setCurriculumvitae(CurriculumVitae curriculumvitae) {
-        this.curriculumvitae = curriculumvitae;
+    public void setUniversidades(Universidades universidades) {
+        this.universidades = universidades;
+    }
+
+    public Carreras getCarreras() {
+        return carreras;
+    }
+
+    public void setCarreras(Carreras carreras) {
+        this.carreras = carreras;
     }
 }

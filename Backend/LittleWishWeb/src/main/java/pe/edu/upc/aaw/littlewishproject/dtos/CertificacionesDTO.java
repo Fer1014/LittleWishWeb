@@ -1,7 +1,5 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
-
 import java.time.LocalDate;
 
 public class CertificacionesDTO {
@@ -11,7 +9,6 @@ public class CertificacionesDTO {
     private LocalDate fechaExpedicion;
     private LocalDate fechaCaducidad;
     private String urlCredencial;
-    private CurriculumVitae curriculumVitae;
 
     public int getID_Certificaciones() {
         return ID_Certificaciones;
@@ -59,13 +56,5 @@ public class CertificacionesDTO {
 
     public void setUrlCredencial(String urlCredencial) {
         this.urlCredencial = urlCredencial;
-    }
-
-    public CurriculumVitae getCurriculumVitae() {
-        return curriculumVitae;
-    }
-
-    public void setCurriculumVitae(CurriculumVitae curriculumVitae) {
-        this.curriculumVitae = curriculumVitae;
     }
 }

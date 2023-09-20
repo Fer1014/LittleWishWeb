@@ -1,7 +1,5 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
-
 import java.time.LocalDate;
 
 public class Experiencia_LaboralDTO {
@@ -10,7 +8,6 @@ public class Experiencia_LaboralDTO {
     private String Cargo;
     private LocalDate FechaInicio;
     private LocalDate FechaFinalizado;
-    private CurriculumVitae curriculumVitae;
 
     public int getID_Experiencia_laboral() {
         return ID_Experiencia_laboral;
@@ -50,13 +47,5 @@ public class Experiencia_LaboralDTO {
 
     public void setFechaFinalizado(LocalDate fechaFinalizado) {
         FechaFinalizado = fechaFinalizado;
-    }
-
-    public CurriculumVitae getCurriculumVitae() {
-        return curriculumVitae;
-    }
-
-    public void setCurriculumVitae(CurriculumVitae curriculumVitae) {
-        this.curriculumVitae = curriculumVitae;
     }
 }
