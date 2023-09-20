@@ -11,15 +11,20 @@ public class Formacion_Academica {
     @Column(name = "Nombre_Secundaria", length = 45, nullable = false)
     private String Nombre_Secundaria;
     @ManyToOne
-    @JoinColumn(name = "ID_CV")
-    private CurriculumVitae curriculumvitae;
+    @JoinColumn(name = "ID_Universidad")
+    private Universidades universidades;
+    @ManyToOne
+    @JoinColumn(name = "ID_Carrera")
+    private Carreras carreras;
+
     public Formacion_Academica() {
     }
 
-    public Formacion_Academica(int ID_Formacion_academica, String nombre_Secundaria, CurriculumVitae curriculumvitae) {
+    public Formacion_Academica(int ID_Formacion_academica, String nombre_Secundaria, Universidades universidades, Carreras carreras) {
         this.ID_Formacion_academica = ID_Formacion_academica;
         Nombre_Secundaria = nombre_Secundaria;
-        this.curriculumvitae = curriculumvitae;
+        this.universidades = universidades;
+        this.carreras = carreras;
     }
 
     public int getID_Formacion_academica() {
@@ -38,11 +43,19 @@ public class Formacion_Academica {
         Nombre_Secundaria = nombre_Secundaria;
     }
 
-    public CurriculumVitae getCurriculumvitae() {
-        return curriculumvitae;
+    public Universidades getUniversidades() {
+        return universidades;
     }
 
-    public void setCurriculumvitae(CurriculumVitae curriculumvitae) {
-        this.curriculumvitae = curriculumvitae;
+    public void setUniversidades(Universidades universidades) {
+        this.universidades = universidades;
+    }
+
+    public Carreras getCarreras() {
+        return carreras;
+    }
+
+    public void setCarreras(Carreras carreras) {
+        this.carreras = carreras;
     }
 }

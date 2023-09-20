@@ -18,19 +18,14 @@ public class Idiomas {
     @Column(name = "nivelOral", nullable = false)
     private String nivelOral;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_CV")
-    private CurriculumVitae curriculumVitae;
-
     public Idiomas() {
     }
 
-    public Idiomas(int ID_Idiomas, String idiomas, String nivelEscrito, String nivelOral, CurriculumVitae curriculumVitae) {
+    public Idiomas(int ID_Idiomas, String idiomas, String nivelEscrito, String nivelOral) {
         this.ID_Idiomas = ID_Idiomas;
         this.idiomas = idiomas;
         this.nivelEscrito = nivelEscrito;
         this.nivelOral = nivelOral;
-        this.curriculumVitae = curriculumVitae;
     }
 
     public int getID_Idiomas() {
@@ -63,13 +58,5 @@ public class Idiomas {
 
     public void setNivelOral(String nivelOral) {
         this.nivelOral = nivelOral;
-    }
-
-    public CurriculumVitae getCurriculumVitae() {
-        return curriculumVitae;
-    }
-
-    public void setCurriculumVitae(CurriculumVitae curriculumVitae) {
-        this.curriculumVitae = curriculumVitae;
     }
 }

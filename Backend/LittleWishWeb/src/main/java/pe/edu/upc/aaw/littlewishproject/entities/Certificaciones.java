@@ -26,21 +26,16 @@ public class Certificaciones {
     @Column(name = "urlCredencial", length = 50, nullable = false)
     private String urlCredencial;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_CV")
-    private CurriculumVitae curriculumVitae;
-
     public Certificaciones() {
     }
 
-    public Certificaciones(int ID_Certificaciones, String nombreCertificaciones, String empresaEmisora, LocalDate fechaExpedicion, LocalDate fechaCaducidad, String urlCredencial, CurriculumVitae curriculumVitae) {
+    public Certificaciones(int ID_Certificaciones, String nombreCertificaciones, String empresaEmisora, LocalDate fechaExpedicion, LocalDate fechaCaducidad, String urlCredencial) {
         this.ID_Certificaciones = ID_Certificaciones;
         this.nombreCertificaciones = nombreCertificaciones;
         this.empresaEmisora = empresaEmisora;
         this.fechaExpedicion = fechaExpedicion;
         this.fechaCaducidad = fechaCaducidad;
         this.urlCredencial = urlCredencial;
-        this.curriculumVitae = curriculumVitae;
     }
 
     public int getID_Certificaciones() {
@@ -89,13 +84,5 @@ public class Certificaciones {
 
     public void setUrlCredencial(String urlCredencial) {
         this.urlCredencial = urlCredencial;
-    }
-
-    public CurriculumVitae getCurriculumVitae() {
-        return curriculumVitae;
-    }
-
-    public void setCurriculumVitae(CurriculumVitae curriculumVitae) {
-        this.curriculumVitae = curriculumVitae;
     }
 }

@@ -1,8 +1,5 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-
-import pe.edu.upc.aaw.littlewishproject.entities.Formacion_Academica;
-
 import java.time.LocalDate;
 
 public class UniversidadesDTO {
@@ -10,7 +7,6 @@ public class UniversidadesDTO {
     private String nameUniversidades;
     private LocalDate FechaIngreso;
     private LocalDate FechaEgreso;
-    private Formacion_Academica formacion_academica;
 
     public int getID_Universidad() {
         return ID_Universidad;
@@ -42,13 +38,5 @@ public class UniversidadesDTO {
 
     public void setFechaEgreso(LocalDate fechaEgreso) {
         FechaEgreso = fechaEgreso;
-    }
-
-    public Formacion_Academica getFormacion_academica() {
-        return formacion_academica;
-    }
-
-    public void setFormacion_academica(Formacion_Academica formacion_academica) {
-        this.formacion_academica = formacion_academica;
     }
 }
