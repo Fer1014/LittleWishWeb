@@ -1,16 +1,13 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.Usuario;
-
-
-
+import pe.edu.upc.aaw.littlewishproject.entities.Users;
 public class PuntuacionDTO {
 
     private int idPuntuacion;
 
     private int puntos;
 
-    private Usuario usuario;
+    private Users users;
 
     public int getIdPuntuacion() {
         return idPuntuacion;
@@ -28,11 +25,11 @@ public class PuntuacionDTO {
         this.puntos = puntos;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

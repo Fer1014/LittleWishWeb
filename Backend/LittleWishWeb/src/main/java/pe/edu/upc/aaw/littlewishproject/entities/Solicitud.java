@@ -7,28 +7,28 @@ import javax.persistence.*;
 public class Solicitud {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "descripcion",nullable = false,length = 50)
+    private int ID_Solicitud;
+    @Column(name = "descripcion",length = 50, nullable = false)
     private String descripcion;
     @ManyToOne
-    @JoinColumn(name = "solicitudEstado")
+    @JoinColumn(name = "ID_solicitudEstado")
     private Solicitud_Estado solicitudEstado;
 
     public Solicitud() {
     }
 
-    public Solicitud(int id, String descripcion, Solicitud_Estado solicitudEstado) {
-        this.id = id;
+    public Solicitud(int ID_Solicitud, String descripcion, Solicitud_Estado solicitudEstado) {
+        this.ID_Solicitud = ID_Solicitud;
         this.descripcion = descripcion;
         this.solicitudEstado = solicitudEstado;
     }
 
-    public int getId() {
-        return id;
+    public int getID_Solicitud() {
+        return ID_Solicitud;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID_Solicitud(int ID_Solicitud) {
+        this.ID_Solicitud = ID_Solicitud;
     }
 
     public String getDescripcion() {

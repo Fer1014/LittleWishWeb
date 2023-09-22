@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.ComentarioDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Comentario;
-import pe.edu.upc.aaw.littlewishproject.serviceinterface.IComentarioService;
+import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.IComentarioService;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,13 +1,13 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.Usuario;
+import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
 public class ComentarioDTO {
     private int idComentario;
 
     private String comentario;
 
-    private Usuario usuario;
+    private Users users;
 
     public int getIdComentario() {
         return idComentario;
@@ -25,11 +25,11 @@ public class ComentarioDTO {
         this.comentario = comentario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

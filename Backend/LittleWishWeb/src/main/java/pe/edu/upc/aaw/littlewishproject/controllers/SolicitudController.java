@@ -2,10 +2,8 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.SolicitudDTO;
-import pe.edu.upc.aaw.littlewishproject.dtos.Solicitud_EstadoDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Solicitud;
 import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.ISolicitudService;
 

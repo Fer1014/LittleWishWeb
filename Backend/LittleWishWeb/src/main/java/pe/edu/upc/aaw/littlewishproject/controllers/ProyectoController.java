@@ -17,17 +17,25 @@ public class ProyectoController {
     private IProyectoService poS;
 
     @PostMapping
-    public void Registrar(@RequestBody ProyectoDTO dto){
-        ModelMapper m=new ModelMapper();
-        Proyecto t=m.map(dto,Proyecto.class);
+    public void Registrar(@RequestBody ProyectoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Proyecto t = m.map(dto, Proyecto.class);
         poS.insert(t);
     }
+
     @GetMapping//obtener
-    public List<ProyectoDTO> listar(){
+    public List<ProyectoDTO> listar() {
         //Usamos get para obtener los
-        return  poS.list().stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,ProyectoDTO.class);
+        return poS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ProyectoDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody ProyectoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Proyecto p = m.map(dto, Proyecto.class);
+        poS.insert(p);
     }
 }

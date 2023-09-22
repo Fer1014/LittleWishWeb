@@ -1,12 +1,11 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.Usuario;
-
+import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
 public class FavoritosDTO {
     private int idFavoritos;
 
-    private Usuario usuario;
+    private Users users;
 
     public int getIdFavoritos() {
         return idFavoritos;
@@ -16,11 +15,11 @@ public class FavoritosDTO {
         this.idFavoritos = idFavoritos;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

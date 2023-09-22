@@ -11,15 +11,15 @@ public class Puntuacion {
     @Column(name = "Puntos", nullable = false, length = 35)
     private int puntos;
     @ManyToOne
-    @JoinColumn(name = "Id_Usuario", nullable = false)
-    private Usuario usuario;
+    @JoinColumn(name = "Id_Users", nullable = false)
+    private Users users;
 
     public Puntuacion(){}
 
-    public Puntuacion(int idPuntuacion, int puntos, Usuario usuario) {
+    public Puntuacion(int idPuntuacion, int puntos, Users users) {
         this.idPuntuacion = idPuntuacion;
         this.puntos = puntos;
-        this.usuario = usuario;
+        this.users = users;
     }
 
     public int getIdPuntuacion() {
@@ -38,11 +38,11 @@ public class Puntuacion {
         this.puntos = puntos;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

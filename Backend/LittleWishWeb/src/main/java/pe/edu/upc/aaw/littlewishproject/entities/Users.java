@@ -2,7 +2,6 @@ package pe.edu.upc.aaw.littlewishproject.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,7 +13,7 @@ public class Users implements Serializable {
     private String Name;
     @Column(name = "Apellidos", length = 45, nullable = false)
     private String Apellidos;
-    @Column(name = "DNI",length = 8, nullable = false)
+    @Column(name = "DNI", nullable = false)
     private int DNI;
     @Column(name = "Correo", length = 45, nullable = false)
     private String Correo;
@@ -26,15 +25,17 @@ public class Users implements Serializable {
     private String username;
     @Column(name ="Password", length = 200)
     private String Password;
-    private Boolean enabled;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private List<Role> roles;
+    @ManyToOne
+    @JoinColumn(name = "ID_Role")
+    private Role role;
+    @ManyToOne
+    @JoinColumn(name = "ID_CV")
+    private CurriculumVitae curriculumVitae;
 
     public Users() {
     }
 
-    public Users(Long id, String name, String apellidos, int DNI, String correo, int telefono, String empresa, String username, String password, Boolean enabled, List<Role> roles) {
+    public Users(Long id, String name, String apellidos, int DNI, String correo, int telefono, String empresa, String username, String password, Role role, CurriculumVitae curriculumVitae) {
         Id = id;
         Name = name;
         Apellidos = apellidos;
@@ -43,9 +44,9 @@ public class Users implements Serializable {
         Telefono = telefono;
         Empresa = empresa;
         this.username = username;
-        this.Password = password;
-        this.enabled = enabled;
-        this.roles = roles;
+        Password = password;
+        this.role = role;
+        this.curriculumVitae = curriculumVitae;
     }
 
     public Long getId() {
@@ -117,22 +118,22 @@ public class Users implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.Password = password;
+        Password = password;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
+    public Role getRole() {
+        return role;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public CurriculumVitae getCurriculumVitae() {
+        return curriculumVitae;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setCurriculumVitae(CurriculumVitae curriculumVitae) {
+        this.curriculumVitae = curriculumVitae;
     }
 }

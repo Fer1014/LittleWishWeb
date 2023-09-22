@@ -11,16 +11,16 @@ public class Comentario {
     @Column(name = "comentario", nullable = false, length = 35)
     private String comentario;
     @ManyToOne
-    @JoinColumn(name = "Id_Usuario", nullable = false)
-    private Usuario usuario;
+    @JoinColumn(name = "Id_Users", nullable = false)
+    private Users users;
 
     public Comentario() {
     }
 
-    public Comentario(int idComentario, String comentario, Usuario usuario) {
+    public Comentario(int idComentario, String comentario, Users users) {
         this.idComentario = idComentario;
         this.comentario = comentario;
-        this.usuario = usuario;
+        this.users = users;
     }
 
     public int getIdComentario() {
@@ -39,11 +39,11 @@ public class Comentario {
         this.comentario = comentario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

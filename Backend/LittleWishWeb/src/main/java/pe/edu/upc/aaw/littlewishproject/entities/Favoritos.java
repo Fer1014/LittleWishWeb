@@ -10,11 +10,15 @@ public class Favoritos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFavoritos;
     @ManyToOne
-    @JoinColumn(name = "Id_Usuario", nullable = false)
-    private Usuario usuario;
+    @JoinColumn(name = "ID_Users", nullable = false)
+    private Users users;
 
     public Favoritos(){
+    }
 
+    public Favoritos(int idFavoritos, Users users) {
+        this.idFavoritos = idFavoritos;
+        this.users = users;
     }
 
     public int getIdFavoritos() {
@@ -25,11 +29,11 @@ public class Favoritos {
         this.idFavoritos = idFavoritos;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

@@ -16,15 +16,18 @@ public class Pago {
     @ManyToOne
     @JoinColumn(name = "idtarjeta")
     private Tarjeta tarjeta;
+    @ManyToOne
+    @JoinColumn(name = "ID_Proyecto")
+    private Proyecto proyecto;
     public Pago(){
-
     }
 
-    public Pago(int idPago, int monto, LocalDate fecha, Tarjeta tarjeta) {
+    public Pago(int idPago, int monto, LocalDate fecha, Tarjeta tarjeta, Proyecto proyecto) {
         this.idPago = idPago;
         this.monto = monto;
         this.fecha = fecha;
         this.tarjeta = tarjeta;
+        this.proyecto = proyecto;
     }
 
     public int getIdPago() {
@@ -57,5 +60,13 @@ public class Pago {
 
     public void setTarjeta(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;
+    }
+
+    public Proyecto getProyecto() {
+        return proyecto;
+    }
+
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
     }
 }
