@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.littlewishproject.entities.Puntuacion;
 import pe.edu.upc.aaw.littlewishproject.repositories.IPuntuacionRepository;
-import pe.edu.upc.aaw.littlewishproject.serviceinterface.IPuntuacionService;
+import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.IPuntuacionService;
 
 import java.util.List;
 

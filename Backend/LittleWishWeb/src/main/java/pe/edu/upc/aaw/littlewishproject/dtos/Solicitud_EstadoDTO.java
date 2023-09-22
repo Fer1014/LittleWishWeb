@@ -1,17 +1,15 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import javax.persistence.Column;
-
 public class Solicitud_EstadoDTO {
-    private int id;
+    private int ID_solicitudEstado;
     private String campo_estado;
 
-    public int getId() {
-        return id;
+    public int getID_solicitudEstado() {
+        return ID_solicitudEstado;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID_solicitudEstado(int ID_solicitudEstado) {
+        this.ID_solicitudEstado = ID_solicitudEstado;
     }
 
     public String getCampo_estado() {

@@ -1,5 +1,7 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
+import pe.edu.upc.aaw.littlewishproject.entities.Comentario;
+import pe.edu.upc.aaw.littlewishproject.entities.Puntuacion;
 import pe.edu.upc.aaw.littlewishproject.entities.Solicitud;
 
 import java.time.LocalDate;
@@ -7,23 +9,12 @@ import java.time.LocalDate;
 public class ProyectoDTO {
 
     private int idProyecto;
-
     private String descripcion;
-
-
     private LocalDate fechaInicio;
-
     private LocalDate fechaFin;
     private Solicitud solicitud;
-
-
-
-    //private Puntuacion puntuacion;
-
-
-    //private Solicitud solicitud;
-
-    //private Comentario comentario;
+    private Puntuacion puntuacion;
+    private Comentario comentario;
 
     public int getIdProyecto() {
         return idProyecto;
@@ -63,5 +54,21 @@ public class ProyectoDTO {
 
     public void setSolicitud(Solicitud solicitud) {
         this.solicitud = solicitud;
+    }
+
+    public Puntuacion getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(Puntuacion puntuacion) {
+        this.puntuacion = puntuacion;
+    }
+
+    public Comentario getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(Comentario comentario) {
+        this.comentario = comentario;
     }
 }

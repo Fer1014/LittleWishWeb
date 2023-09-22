@@ -2,22 +2,17 @@ package pe.edu.upc.aaw.littlewishproject.dtos;
 
 import pe.edu.upc.aaw.littlewishproject.entities.Solicitud_Estado;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 public class SolicitudDTO {
-    private int id;
+    private int ID_Solicitud;
     private String descripcion;
-
     private Solicitud_Estado solicitudEstado;
 
-    public int getId() {
-        return id;
+    public int getID_Solicitud() {
+        return ID_Solicitud;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID_Solicitud(int ID_Solicitud) {
+        this.ID_Solicitud = ID_Solicitud;
     }
 
     public String getDescripcion() {

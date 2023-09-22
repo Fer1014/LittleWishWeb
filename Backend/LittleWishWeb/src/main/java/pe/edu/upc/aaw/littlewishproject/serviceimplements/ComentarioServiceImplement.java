@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.littlewishproject.entities.Comentario;
 import pe.edu.upc.aaw.littlewishproject.repositories.IComentarioRepository;
-import pe.edu.upc.aaw.littlewishproject.serviceinterface.IComentarioService;
+import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.IComentarioService;
 
 import java.util.List;
 

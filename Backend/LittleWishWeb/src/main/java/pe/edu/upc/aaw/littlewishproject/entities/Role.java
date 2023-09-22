@@ -1,35 +1,29 @@
 package pe.edu.upc.aaw.littlewishproject.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "roles", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","rol"}) })
-public class Role implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @javax.persistence.Id
+@Table(name = "Role")
+public class Role {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private long Id;
+    @Column(name = "rol",length = 20, nullable = false)
     private String rol;
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
-    private Users user;
 
     public Role() {
     }
 
-    public Role(Long id, String rol, Users user) {
+    public Role(long id, String rol) {
         Id = id;
         this.rol = rol;
-        this.user = user;
     }
 
-    public Long getId() {
+    public long getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         Id = id;
     }
 
@@ -39,13 +33,5 @@ public class Role implements Serializable {
 
     public void setRol(String rol) {
         this.rol = rol;
-    }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public void setUser(Users user) {
-        this.user = user;
     }
 }

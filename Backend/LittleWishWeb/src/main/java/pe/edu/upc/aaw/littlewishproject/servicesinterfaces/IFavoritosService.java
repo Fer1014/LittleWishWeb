@@ -1,7 +1,6 @@
-package pe.edu.upc.aaw.littlewishproject.serviceinterface;
+package pe.edu.upc.aaw.littlewishproject.servicesinterfaces;
 
 import pe.edu.upc.aaw.littlewishproject.entities.Favoritos;
-import pe.edu.upc.aaw.littlewishproject.entities.Puntuacion;
 
 import java.util.List;
 
