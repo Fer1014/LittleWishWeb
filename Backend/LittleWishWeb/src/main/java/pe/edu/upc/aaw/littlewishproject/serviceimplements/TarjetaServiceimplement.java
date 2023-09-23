@@ -19,6 +19,11 @@ public class TarjetaServiceimplement implements ITarjetaService {
     }
 
     @Override
+    public void eliminar(int idTarjeta) {
+        tR.deleteById(idTarjeta);
+    }
+
+    @Override
     public List<Tarjeta> list() {
         return tR.findAll();
     }

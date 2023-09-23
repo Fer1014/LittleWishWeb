@@ -18,6 +18,11 @@ public class SolicitudServiceImplement implements ISolicitudService {
     }
 
     @Override
+    public void eliminar(int idSoli) {
+        sR.deleteById(idSoli);
+    }
+
+    @Override
     public List<Solicitud> list() {
         return sR.findAll();
     }

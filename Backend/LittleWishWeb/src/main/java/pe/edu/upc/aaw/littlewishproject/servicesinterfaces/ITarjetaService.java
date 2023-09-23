@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface ITarjetaService {
     public void insert(Tarjeta tarjeta);
+    public void eliminar(int idTarjeta);
     public List<Tarjeta> list();
+
 }

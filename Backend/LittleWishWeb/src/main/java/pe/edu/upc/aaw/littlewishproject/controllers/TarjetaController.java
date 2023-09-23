@@ -30,4 +30,8 @@ public class TarjetaController {
             return m.map(x,TarjetaDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{id}")
+    public void Eliminar(@PathVariable("id")Integer id){
+        tS.eliminar(id);
+    }
 }
