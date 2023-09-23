@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -25,9 +26,10 @@ public class Users implements Serializable {
     private String username;
     @Column(name ="Password", length = 200)
     private String Password;
-    @ManyToOne
-    @JoinColumn(name = "ID_Role")
-    private Role role;
+    private Boolean enabled;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Role> roles;
     @ManyToOne
     @JoinColumn(name = "ID_CV")
     private CurriculumVitae curriculumVitae;
@@ -35,7 +37,7 @@ public class Users implements Serializable {
     public Users() {
     }
 
-    public Users(Long id, String name, String apellidos, int DNI, String correo, int telefono, String empresa, String username, String password, Role role, CurriculumVitae curriculumVitae) {
+    public Users(Long id, String name, String apellidos, int DNI, String correo, int telefono, String empresa, String username, String password, Boolean enabled, List<Role> roles, CurriculumVitae curriculumVitae) {
         Id = id;
         Name = name;
         Apellidos = apellidos;
@@ -45,7 +47,8 @@ public class Users implements Serializable {
         Empresa = empresa;
         this.username = username;
         Password = password;
-        this.role = role;
+        this.enabled = enabled;
+        this.roles = roles;
         this.curriculumVitae = curriculumVitae;
     }
 
@@ -121,12 +124,20 @@ public class Users implements Serializable {
         Password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public CurriculumVitae getCurriculumVitae() {

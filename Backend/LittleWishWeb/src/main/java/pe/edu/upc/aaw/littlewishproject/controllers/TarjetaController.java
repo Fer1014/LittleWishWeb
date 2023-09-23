@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.TarjetaDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Tarjeta;
@@ -17,12 +18,14 @@ public class TarjetaController {
     private ITarjetaService tS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void Registrar(@RequestBody TarjetaDTO dto){
         ModelMapper m=new ModelMapper();
         Tarjeta t=m.map(dto,Tarjeta.class);
         tS.insert(t);
     }
     @GetMapping//obtener
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<TarjetaDTO> listar(){
         //Usamos get para obtener los
         return  tS.list().stream().map(x->{

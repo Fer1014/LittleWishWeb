@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demo1_SV64" />
+        <module name="demoAuthor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demoAuthor" target="17" />
+      <module name="demo1_SV64" target="17" />
       <module name="LittleWishProject" target="17" />
     </bytecodeTargetLevel>
   </component>

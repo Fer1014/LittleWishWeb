@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.FavoritosDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Favoritos;
@@ -17,6 +18,7 @@ public class FavoritosController {
     @Autowired
     private IFavoritosService fS;
     @PostMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void insertar(@RequestBody FavoritosDTO dto){
         ModelMapper m = new ModelMapper();
         Favoritos u = m.map(dto, Favoritos.class);
@@ -24,6 +26,7 @@ public class FavoritosController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public List<FavoritosDTO> listar() {
         return fS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -32,6 +35,7 @@ public class FavoritosController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void eliminar(@PathVariable("id") Integer id){
         fS.delete(id);
     }

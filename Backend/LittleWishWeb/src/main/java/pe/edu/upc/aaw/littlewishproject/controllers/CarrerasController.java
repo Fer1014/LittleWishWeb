@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.CarrerasDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Carreras;
@@ -17,6 +18,7 @@ public class CarrerasController {
     private ICarrerasService cS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('DESARROLLADOR')")
     public void registrar(@RequestBody CarrerasDTO dto) {
         ModelMapper m = new ModelMapper();
         Carreras c = m.map(dto, Carreras.class);
@@ -24,6 +26,7 @@ public class CarrerasController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('DESARROLLADOR')")
     public List<CarrerasDTO> listar() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -31,11 +34,13 @@ public class CarrerasController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping
+    @PreAuthorize("hasAuthority('DESARROLLADOR')")
     public void eliminar(@RequestParam("id") Integer id) {
         cS.delete(id);
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('DESARROLLADOR')")
     public void modificar(@RequestBody CarrerasDTO dto) {
         ModelMapper m = new ModelMapper();
         Carreras c = m.map(dto, Carreras.class);

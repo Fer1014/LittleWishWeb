@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.RoleDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Role;
@@ -17,6 +18,7 @@ public class RoleController {
     private IRoleService rS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void Registrar(@RequestBody RoleDTO dto) {
         ModelMapper m = new ModelMapper();
         Role r = m.map(dto, Role.class);
@@ -24,6 +26,7 @@ public class RoleController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<RoleDTO> listar() {
         return rS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
