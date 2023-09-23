@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.PuntuacionDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Puntuacion;
@@ -16,6 +17,7 @@ public class PuntuacionController {
     @Autowired
     private IPuntuacionService pU;
     @PostMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void insertar(@RequestBody PuntuacionDTO dto){
         ModelMapper m = new ModelMapper();
         Puntuacion u = m.map(dto, Puntuacion.class);
@@ -23,6 +25,7 @@ public class PuntuacionController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public List<PuntuacionDTO> listar() {
         return pU.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -31,6 +34,7 @@ public class PuntuacionController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void eliminar(@PathVariable("id") Integer id){
         pU.delete(id);
     }

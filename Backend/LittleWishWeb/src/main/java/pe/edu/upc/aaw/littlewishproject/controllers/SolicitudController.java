@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.SolicitudDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Solicitud;
@@ -16,6 +17,7 @@ public class SolicitudController {
     @Autowired
     private ISolicitudService soS;
     @PostMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void Insertar(@RequestBody SolicitudDTO dto){
         ModelMapper m=new ModelMapper();
         Solicitud s=m.map(dto,Solicitud.class);
@@ -23,6 +25,7 @@ public class SolicitudController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<SolicitudDTO> listar() {
         return soS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

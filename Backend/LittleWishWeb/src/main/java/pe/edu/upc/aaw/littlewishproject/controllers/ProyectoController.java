@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.littlewishproject.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.ProyectoDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Proyecto;
@@ -17,6 +18,7 @@ public class ProyectoController {
     private IProyectoService poS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
     public void Registrar(@RequestBody ProyectoDTO dto) {
         ModelMapper m = new ModelMapper();
         Proyecto t = m.map(dto, Proyecto.class);
@@ -24,6 +26,7 @@ public class ProyectoController {
     }
 
     @GetMapping//obtener
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ProyectoDTO> listar() {
         //Usamos get para obtener los
         return poS.list().stream().map(x -> {
@@ -33,6 +36,7 @@ public class ProyectoController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void modificar(@RequestBody ProyectoDTO dto) {
         ModelMapper m = new ModelMapper();
         Proyecto p = m.map(dto, Proyecto.class);
