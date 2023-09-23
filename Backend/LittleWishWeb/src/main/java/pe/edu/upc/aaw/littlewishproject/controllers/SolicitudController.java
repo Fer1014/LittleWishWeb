@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.SolicitudDTO;
-import pe.edu.upc.aaw.littlewishproject.dtos.TarjetaDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Solicitud;
 import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.ISolicitudService;
 
