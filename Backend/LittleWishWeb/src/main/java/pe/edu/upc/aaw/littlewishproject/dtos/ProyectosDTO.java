@@ -10,9 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
-public class ProyectoDTO {
+public class ProyectosDTO {
+    private int Id;
 
-    private int idProyecto;
     private String descripcion;
 
     private LocalDate fechaInicio;
@@ -25,12 +25,12 @@ public class ProyectoDTO {
 
     private Comentario comentario;
 
-    public int getIdProyecto() {
-        return idProyecto;
+    public int getId() {
+        return Id;
     }
 
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
+    public void setId(int id) {
+        Id = id;
     }
 
     public String getDescripcion() {
