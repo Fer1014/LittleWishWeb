@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
     public Users findByUsername(String username);
@@ -15,6 +17,15 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     //BUSCAR POR NOMBRE
     @Query("select count(u.username) from Users u where u.username =:Username")
     public int buscarUsername(@Param("Username") String nombre);
+
+
+    //USER POR PUNTUACION - MEJORES PUNTUADOS
+    @Query(value = "SELECT u.username \n" +
+            " FROM users u INNER JOIN puntuacion p\n" +
+            "ON u.id = p.id_users\n" +
+            "WHERE p.puntos = 5 OR p.puntos =4;\n;", nativeQuery = true )
+    public List<String[]> usernameBypuntuacion();
+
 
 
     //INSERTAR ROLES

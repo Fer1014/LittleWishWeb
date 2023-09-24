@@ -22,4 +22,10 @@ public class UserServiceImplement implements IUserService {
     public List<Users> list() {
         return uR.findAll();
     }
+
+    @Override
+    public List<String[]> usernameBypuntuacion() {
+        return uR.usernameBypuntuacion();
+    }
+
 }
