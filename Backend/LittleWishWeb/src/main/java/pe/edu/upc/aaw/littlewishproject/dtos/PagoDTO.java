@@ -1,6 +1,6 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
-import pe.edu.upc.aaw.littlewishproject.entities.Proyecto;
+import pe.edu.upc.aaw.littlewishproject.entities.Proyectos;
 import pe.edu.upc.aaw.littlewishproject.entities.Tarjeta;
 
 import java.time.LocalDate;
@@ -10,8 +10,7 @@ public class PagoDTO {
     private int monto;
     private LocalDate fecha;
     private Tarjeta tarjeta;
-    private Proyecto proyecto;
-
+    private Proyectos proyectos;
 
     public int getIdPago() {
         return idPago;
@@ -45,10 +44,11 @@ public class PagoDTO {
         this.tarjeta = tarjeta;
     }
 
-    public Proyecto getProyecto() {
-        return proyecto;
+    public Proyectos getProyectos() {
+        return proyectos;
     }
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
+
+    public void setProyectos(Proyectos proyectos) {
+        this.proyectos = proyectos;
     }
 }

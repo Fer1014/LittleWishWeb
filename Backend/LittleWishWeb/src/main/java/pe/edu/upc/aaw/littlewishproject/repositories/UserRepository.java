@@ -23,9 +23,9 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     @Query("SELECT u.Name FROM Users u LEFT JOIN u.roles r WHERE r.rol = :rol")
     List<String> findUsersByRole(@Param("rol") String rol);
 
-    //BUSCAR POR NOMBRE
-    @Query("select count(u.username) from Users u where u.username =:Username")
-    public int buscarUsername(@Param("Username") String nombre);
+    //Contar por role
+    @Query("SELECT COUNT(u) FROM Users u JOIN u.roles r WHERE r.rol = :rol")
+    int contarUsuariosPorRol(@Param("rol") String rol);
 
 
     //USER POR PUNTUACION - MEJORES PUNTUADOS
@@ -38,6 +38,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     //MOSTRAR CV POR USERNAME
     @Query("SELECT cv FROM Users u JOIN u.curriculumVitae cv WHERE u.username = :username")
     CurriculumVitae findCVByUsername(String username);
+
 
 
 

@@ -90,5 +90,11 @@ public class UsersController {
             return null;
         }
     }
+    @GetMapping("/countByRole")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
+    public int contarUsuariosPorRol(@RequestParam String rol) {
+        return uS.contarUsuariosPorRol(rol);
+    }
+
 
 }

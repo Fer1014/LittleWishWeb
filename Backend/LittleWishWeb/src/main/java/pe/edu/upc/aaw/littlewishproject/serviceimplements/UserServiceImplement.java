@@ -44,5 +44,11 @@ public class UserServiceImplement implements IUserService {
         return uR.findCVByUsername(username);
     }
 
+    @Override
+    public int contarUsuariosPorRol(String rol) {
+        return uR.contarUsuariosPorRol(rol);
+    }
+
+
 
 }

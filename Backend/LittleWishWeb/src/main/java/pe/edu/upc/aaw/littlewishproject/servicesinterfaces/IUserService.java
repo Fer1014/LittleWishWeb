@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.littlewishproject.servicesinterfaces;
 
+import org.springframework.data.repository.query.Param;
 import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
@@ -12,6 +13,9 @@ public interface IUserService {
     public Users findByDNI(int dni);
     public List<String> findUsersByRole(String rol);
     public CurriculumVitae findCVByUsername(String username);
+    public int contarUsuariosPorRol(String rol);
+
+
 
 
 

@@ -5,11 +5,11 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "proyecto")
-public class Proyecto {
+public class Proyectos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProyecto;
-    @Column(name = "descripcion",nullable = false,length = 50)
+    private int id_proyecto;
+    @Column(name = "descripcion", length = 50, nullable = false)
     private String descripcion;
     @Column(name="fechaInicio", nullable = false)
     private LocalDate fechaInicio;
@@ -25,11 +25,11 @@ public class Proyecto {
     @JoinColumn(name = "idComentario")
     private Comentario comentario;
 
-    public Proyecto() {
+    public Proyectos() {
     }
 
-    public Proyecto(int idProyecto, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, Puntuacion puntuacion, Solicitud solicitud, Comentario comentario) {
-        this.idProyecto = idProyecto;
+    public Proyectos(int id_proyecto, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, Puntuacion puntuacion, Solicitud solicitud, Comentario comentario) {
+        this.id_proyecto = id_proyecto;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -38,12 +38,12 @@ public class Proyecto {
         this.comentario = comentario;
     }
 
-    public int getIdProyecto() {
-        return idProyecto;
+    public int getId_proyecto() {
+        return id_proyecto;
     }
 
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
+    public void setId_proyecto(int id_proyecto) {
+        this.id_proyecto = id_proyecto;
     }
 
     public String getDescripcion() {
