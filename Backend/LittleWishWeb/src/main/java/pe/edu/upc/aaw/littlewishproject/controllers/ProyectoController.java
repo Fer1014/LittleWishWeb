@@ -42,4 +42,12 @@ public class ProyectoController {
         Proyecto p = m.map(dto, Proyecto.class);
         poS.insert(p);
     }
+
+    @GetMapping("/{descripcion}")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public ProyectoDTO BuscarNombreProyecto(@PathVariable("descripcion")String descripcion){
+        ModelMapper m=new ModelMapper();
+        ProyectoDTO dto=m.map(poS.buscarProyecto(descripcion),ProyectoDTO.class);
+        return dto;
+    }
 }
