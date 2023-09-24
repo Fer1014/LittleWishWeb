@@ -22,4 +22,9 @@ public class ProyectoServiceImplement implements IProyectoService {
     public List<Proyecto> list() {
         return poR.findAll();
     }
+
+    @Override
+    public Proyecto buscarProyecto(String descripcion) {
+        return poR.buscarProyecto(descripcion);
+    }
 }

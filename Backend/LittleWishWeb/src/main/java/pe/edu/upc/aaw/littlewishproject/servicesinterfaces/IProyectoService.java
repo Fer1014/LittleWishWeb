@@ -7,4 +7,5 @@ import java.util.List;
 public interface IProyectoService {
     public void insert(Proyecto pago);
     public List<Proyecto> list();
+    Proyecto buscarProyecto(String descripcion);
 }
