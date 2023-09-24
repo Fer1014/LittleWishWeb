@@ -22,4 +22,14 @@ public class UserServiceImplement implements IUserService {
     public List<Users> list() {
         return uR.findAll();
     }
+
+    @Override
+    public Users findByDNI(int dni) {
+        return uR.findByDNI(dni);
+    }
+
+    @Override
+    public List<String> findUsersByRole(String rol) {
+        return uR.findUsersByRole(rol);
+    }
 }

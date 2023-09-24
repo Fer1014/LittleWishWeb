@@ -25,10 +25,9 @@ public class ProyectoController {
         poS.insert(t);
     }
 
-    @GetMapping//obtener
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
     public List<ProyectoDTO> listar() {
-        //Usamos get para obtener los
         return poS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ProyectoDTO.class);
@@ -36,7 +35,7 @@ public class ProyectoController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
     public void modificar(@RequestBody ProyectoDTO dto) {
         ModelMapper m = new ModelMapper();
         Proyecto p = m.map(dto, Proyecto.class);
