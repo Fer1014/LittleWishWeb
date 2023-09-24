@@ -9,7 +9,7 @@ public class Tarjeta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTarjeta;
     @Column(name = "numeroTarjeta",nullable = false)
-    private int numeroTarjeta;
+    private long numeroTarjeta;
     @Column(name = "fechaexp",nullable = false,length = 50)
     private String fechaexp;
     @Column(name = "nombre",length = 50,nullable = false)
@@ -22,7 +22,7 @@ public class Tarjeta {
     public Tarjeta() {
     }
 
-    public Tarjeta(int idTarjeta, int numeroTarjeta, String fechaexp, String nombre, String apellido, int cvv) {
+    public Tarjeta(int idTarjeta, long numeroTarjeta, String fechaexp, String nombre, String apellido, int cvv) {
         this.idTarjeta = idTarjeta;
         this.numeroTarjeta = numeroTarjeta;
         this.fechaexp = fechaexp;
@@ -39,11 +39,11 @@ public class Tarjeta {
         this.idTarjeta = idTarjeta;
     }
 
-    public int getNumeroTarjeta() {
+    public long getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
-    public void setNumeroTarjeta(int numeroTarjeta) {
+    public void setNumeroTarjeta(long numeroTarjeta) {
         this.numeroTarjeta = numeroTarjeta;
     }
 

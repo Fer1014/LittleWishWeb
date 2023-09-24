@@ -56,4 +56,24 @@ public class UsersController {
         }
         return listaDTO;
     }
+
+    @GetMapping("/findByDNI")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public UsersDTO findByDNI(@RequestParam int dni) {
+        Users user = uS.findByDNI(dni);
+        if (user != null) {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper.map(user, UsersDTO.class);
+        } else {
+            // Manejo de usuario no encontrado
+            return null;
+        }
+    }
+
+    @GetMapping("/findByRole")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
+    public List<String> findByRole(@RequestParam String rol) {
+        return uS.findUsersByRole(rol);
+    }
+
 }

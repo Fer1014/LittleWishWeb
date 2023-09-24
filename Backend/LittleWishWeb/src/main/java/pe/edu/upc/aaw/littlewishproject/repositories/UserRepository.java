@@ -14,6 +14,14 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<Users, Long> {
     public Users findByUsername(String username);
 
+    //BUSCAR POR DNI
+    @Query("SELECT u FROM Users u WHERE u.DNI = :dni")
+    Users findByDNI(@Param("dni") int dni);
+
+    //BUSCAR POR ROL
+    @Query("SELECT u.Name FROM Users u LEFT JOIN u.roles r WHERE r.rol = :rol")
+    List<String> findUsersByRole(@Param("rol") String rol);
+
     //BUSCAR POR NOMBRE
     @Query("select count(u.username) from Users u where u.username =:Username")
     public int buscarUsername(@Param("Username") String nombre);
