@@ -8,9 +8,19 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
     public Users findByUsername(String username);
+
+    //BUSCAR POR DNI
+    @Query("SELECT u FROM Users u WHERE u.DNI = :dni")
+    Users findByDNI(@Param("dni") int dni);
+
+    //BUSCAR POR ROL
+    @Query("SELECT u.Name FROM Users u LEFT JOIN u.roles r WHERE r.rol = :rol")
+    List<String> findUsersByRole(@Param("rol") String rol);
 
     //BUSCAR POR NOMBRE
     @Query("select count(u.username) from Users u where u.username =:Username")

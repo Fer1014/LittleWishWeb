@@ -4,16 +4,25 @@ import pe.edu.upc.aaw.littlewishproject.entities.Comentario;
 import pe.edu.upc.aaw.littlewishproject.entities.Puntuacion;
 import pe.edu.upc.aaw.littlewishproject.entities.Solicitud;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
 public class ProyectoDTO {
 
     private int idProyecto;
     private String descripcion;
+
     private LocalDate fechaInicio;
+
     private LocalDate fechaFin;
-    private Solicitud solicitud;
+
     private Puntuacion puntuacion;
+
+    private Solicitud solicitud;
+
     private Comentario comentario;
 
     public int getIdProyecto() {
@@ -48,20 +57,20 @@ public class ProyectoDTO {
         this.fechaFin = fechaFin;
     }
 
-    public Solicitud getSolicitud() {
-        return solicitud;
-    }
-
-    public void setSolicitud(Solicitud solicitud) {
-        this.solicitud = solicitud;
-    }
-
     public Puntuacion getPuntuacion() {
         return puntuacion;
     }
 
     public void setPuntuacion(Puntuacion puntuacion) {
         this.puntuacion = puntuacion;
+    }
+
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 
     public Comentario getComentario() {

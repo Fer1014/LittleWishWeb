@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/certifiaciones")
+@RequestMapping("/certificaciones")
 public class CertificacionesController {
     @Autowired
     private ICertificacionesService cS;
@@ -40,6 +40,7 @@ public class CertificacionesController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('DESARROLLADOR')")
     public void modificar(@RequestBody CertificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
         Certificaciones c = m.map(dto, Certificaciones.class);
