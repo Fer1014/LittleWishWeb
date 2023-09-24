@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public interface UserRepository extends JpaRepository<Users, Long> {
             "WHERE p.puntos = 5 OR p.puntos =4;\n;", nativeQuery = true )
     public List<String[]> usernameBypuntuacion();
 
+    //MOSTRAR CV POR USERNAME
+    @Query("SELECT cv FROM Users u JOIN u.curriculumVitae cv WHERE u.username = :username")
+    CurriculumVitae findCVByUsername(String username);
+
 
 
     //INSERTAR ROLES
@@ -41,4 +46,6 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     @Modifying
     @Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
     public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
+
+
 }

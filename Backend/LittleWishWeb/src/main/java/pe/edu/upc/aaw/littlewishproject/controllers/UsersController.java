@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.littlewishproject.dtos.CurriculumVitaeDTO;
 import pe.edu.upc.aaw.littlewishproject.dtos.UsersDTO;
+import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.IUserService;
 import pe.edu.upc.aaw.littlewishproject.dtos.Puntuacion_UsersDTO;
@@ -74,6 +76,19 @@ public class UsersController {
     @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
     public List<String> findByRole(@RequestParam String rol) {
         return uS.findUsersByRole(rol);
+    }
+
+    @GetMapping("/findCVByUsername")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public CurriculumVitaeDTO findCVByUsername(@RequestParam("username") String username) {
+        CurriculumVitae cv = uS.findCVByUsername(username);
+        if (cv != null) {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper.map(cv, CurriculumVitaeDTO.class);
+        } else {
+
+            return null;
+        }
     }
 
 }

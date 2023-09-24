@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.littlewishproject.servicesinterfaces;
 
+import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 
 import java.util.List;
@@ -10,6 +11,8 @@ public interface IUserService {
     public List<String[]> usernameBypuntuacion();
     public Users findByDNI(int dni);
     public List<String> findUsersByRole(String rol);
+    public CurriculumVitae findCVByUsername(String username);
+
 
 
 }
