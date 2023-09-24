@@ -24,6 +24,11 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
+    public List<String[]> usernameBypuntuacion() {
+        return uR.usernameBypuntuacion();
+    }
+
+    @Override
     public Users findByDNI(int dni) {
         return uR.findByDNI(dni);
     }
@@ -32,4 +37,5 @@ public class UserServiceImplement implements IUserService {
     public List<String> findUsersByRole(String rol) {
         return uR.findUsersByRole(rol);
     }
+
 }

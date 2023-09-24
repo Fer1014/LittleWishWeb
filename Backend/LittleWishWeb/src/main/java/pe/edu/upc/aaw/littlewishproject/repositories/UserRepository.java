@@ -27,6 +27,15 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     public int buscarUsername(@Param("Username") String nombre);
 
 
+    //USER POR PUNTUACION - MEJORES PUNTUADOS
+    @Query(value = "SELECT u.username \n" +
+            " FROM users u INNER JOIN puntuacion p\n" +
+            "ON u.id = p.id_users\n" +
+            "WHERE p.puntos = 5 OR p.puntos =4;\n;", nativeQuery = true )
+    public List<String[]> usernameBypuntuacion();
+
+
+
     //INSERTAR ROLES
     @Transactional
     @Modifying

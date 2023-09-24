@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.UsersDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Users;
 import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.IUserService;
+import pe.edu.upc.aaw.littlewishproject.dtos.Puntuacion_UsersDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,6 +43,20 @@ public class UsersController {
         Users u = m.map(dto, Users.class);
         uS.insert(u);
     }
+
+    @GetMapping("/UsuariosMejorPuntuados")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<Puntuacion_UsersDTO> usersPorpuntuacion() {
+        List<String[]> lista = uS.usernameBypuntuacion();
+        List<Puntuacion_UsersDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            Puntuacion_UsersDTO dto = new Puntuacion_UsersDTO();
+            dto.setUsername(data[0]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
     @GetMapping("/findByDNI")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public UsersDTO findByDNI(@RequestParam int dni) {
@@ -59,7 +75,5 @@ public class UsersController {
     public List<String> findByRole(@RequestParam String rol) {
         return uS.findUsersByRole(rol);
     }
-
-
 
 }
