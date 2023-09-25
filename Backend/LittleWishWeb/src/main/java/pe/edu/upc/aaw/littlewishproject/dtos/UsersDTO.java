@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.littlewishproject.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Role;
 
@@ -15,6 +16,7 @@ public class UsersDTO {
     private String Empresa;
     private String username;
     private String Password;
+    @JsonIgnore
     private List<Role> role;
     private CurriculumVitae curriculumVitae;
 
