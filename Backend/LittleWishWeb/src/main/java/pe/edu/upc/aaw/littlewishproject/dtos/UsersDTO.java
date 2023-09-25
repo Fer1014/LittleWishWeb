@@ -3,6 +3,8 @@ package pe.edu.upc.aaw.littlewishproject.dtos;
 import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Role;
 
+import java.util.List;
+
 public class UsersDTO {
     private Long Id;
     private String Name;
@@ -13,7 +15,7 @@ public class UsersDTO {
     private String Empresa;
     private String username;
     private String Password;
-    private Role role;
+    private List<Role> role;
     private CurriculumVitae curriculumVitae;
 
     public Long getId() {
@@ -88,11 +90,11 @@ public class UsersDTO {
         Password = password;
     }
 
-    public Role getRole() {
+    public List<Role> getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(List<Role> role) {
         this.role = role;
     }
 

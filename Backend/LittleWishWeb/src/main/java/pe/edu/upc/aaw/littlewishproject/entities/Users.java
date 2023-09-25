@@ -31,6 +31,7 @@ public class Users implements Serializable {
     private Boolean enabled;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private List<Role> roles;
     @ManyToOne
     @JoinColumn(name = "ID_CV")
