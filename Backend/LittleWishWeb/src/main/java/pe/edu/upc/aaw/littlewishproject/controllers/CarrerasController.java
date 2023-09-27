@@ -41,9 +41,13 @@ public class CarrerasController {
 
     @PutMapping
     @PreAuthorize("hasAuthority('DESARROLLADOR')")
-    public void modificar(@RequestBody CarrerasDTO dto) {
+    public void modificar(@RequestParam int id, @RequestBody CarrerasDTO dto) {
         ModelMapper m = new ModelMapper();
         Carreras c = m.map(dto, Carreras.class);
+        c.setID_Carrera(id); // Establecer el ID del objeto que se va a modificar
         cS.insert(c);
     }
+
+
+
 }

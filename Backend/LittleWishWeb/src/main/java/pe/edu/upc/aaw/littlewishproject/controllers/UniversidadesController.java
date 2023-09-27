@@ -18,7 +18,7 @@ public class UniversidadesController {
     private IUniversidadesService uS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void registrar(@RequestBody UniversidadesDTO dto) {
         ModelMapper m = new ModelMapper();
         Universidades u = m.map(dto, Universidades.class);
@@ -26,7 +26,7 @@ public class UniversidadesController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public List<UniversidadesDTO> listar() {
         return uS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

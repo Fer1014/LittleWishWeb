@@ -19,18 +19,18 @@ public class RoleController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void Registrar(@RequestBody RoleDTO dto) {
+    public void registrar(@RequestBody RoleDTO dto){
         ModelMapper m = new ModelMapper();
         Role r = m.map(dto, Role.class);
         rS.insert(r);
     }
-
     @GetMapping
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<RoleDTO> listar() {
-        return rS.list().stream().map(x -> {
+    public List<RoleDTO> listar(){
+        return rS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
             return m.map(x, RoleDTO.class);
         }).collect(Collectors.toList());
     }
+
 }

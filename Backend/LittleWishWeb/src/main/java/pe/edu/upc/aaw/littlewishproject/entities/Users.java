@@ -1,7 +1,5 @@
 package pe.edu.upc.aaw.littlewishproject.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -9,9 +7,20 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class Users implements Serializable {
+    //Datos de usuario login
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
+    @Column(length = 30, unique = true)
+    private String username;
+    @Column(length = 200)
+    private String password;
+    private Boolean enabled;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Role> roles;
+
+    //Datos generales del usuario
     @Column(name = "Name", length = 45, nullable = false)
     private String Name;
     @Column(name = "Apellidos", length = 45, nullable = false)
@@ -24,43 +33,66 @@ public class Users implements Serializable {
     private int Telefono;
     @Column(name = "Empresa", length = 45, nullable = true)
     private String Empresa;
-    @Column(name ="username",length = 30, unique = true)
-    private String username;
-    @Column(name ="Password", length = 200)
-    private String Password;
-    private Boolean enabled;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private List<Role> roles;
     @ManyToOne
-    @JoinColumn(name = "ID_CV")
+    @JoinColumn(name = "ID_CV", nullable = true)
     private CurriculumVitae curriculumVitae;
 
     public Users() {
     }
 
-    public Users(Long id, String name, String apellidos, int DNI, String correo, int telefono, String empresa, String username, String password, Boolean enabled, List<Role> roles, CurriculumVitae curriculumVitae) {
-        Id = id;
+    public Users(Long id, String username, String password, Boolean enabled, List<Role> roles, String name, String apellidos, int DNI, String correo, int telefono, String empresa, CurriculumVitae curriculumVitae) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+        this.roles = roles;
         Name = name;
         Apellidos = apellidos;
         this.DNI = DNI;
         Correo = correo;
         Telefono = telefono;
         Empresa = empresa;
-        this.username = username;
-        Password = password;
-        this.enabled = enabled;
-        this.roles = roles;
         this.curriculumVitae = curriculumVitae;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public String getName() {
@@ -109,38 +141,6 @@ public class Users implements Serializable {
 
     public void setEmpresa(String empresa) {
         Empresa = empresa;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
     }
 
     public CurriculumVitae getCurriculumVitae() {

@@ -17,6 +17,7 @@ import pe.edu.upc.aaw.littlewishproject.security.JwtTokenUtil;
 import pe.edu.upc.aaw.littlewishproject.serviceimplements.JwtUserDetailsService;
 
 
+//Clase 3
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {

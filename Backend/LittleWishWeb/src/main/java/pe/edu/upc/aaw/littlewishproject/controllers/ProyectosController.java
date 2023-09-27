@@ -27,7 +27,7 @@ public class ProyectosController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO') or hasAuthority('DESARROLLADOR')")
     public List<ProyectosDTO> listar() {
         return pS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -36,7 +36,7 @@ public class ProyectosController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public void modificar(@RequestBody ProyectosDTO dto) {
         ModelMapper m = new ModelMapper();
         Proyectos p = m.map(dto, Proyectos.class);
@@ -44,7 +44,7 @@ public class ProyectosController {
     }
 
     @GetMapping("/descripcion")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO') or hasAuthority('DESARROLLADOR') ")
     public ProyectosDTO BuscarNombreProyecto(@RequestParam("descripcion") String descripcion) {
         Proyectos proyecto = pS.buscarProyecto(descripcion);
         if (proyecto != null) {

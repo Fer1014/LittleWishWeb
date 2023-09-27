@@ -11,10 +11,10 @@ public class Certificaciones {
     @Column(name = "ID_Certificaciones")
     private int ID_Certificaciones;
 
-    @Column(name = "nombreCertificaciones", length = 45, nullable = false)
+    @Column(name = "nombreCertificaciones", length = 150, nullable = false)
     private String nombreCertificaciones;
 
-    @Column(name = "empresaEmisora", length = 50, nullable = false)
+    @Column(name = "empresaEmisora", length = 100, nullable = false)
     private String empresaEmisora;
 
     @Column(name = "fechaExpedicion", nullable = false)
@@ -23,7 +23,7 @@ public class Certificaciones {
     @Column(name = "fechaCaducidad", nullable = false)
     private LocalDate fechaCaducidad;
 
-    @Column(name = "urlCredencial", length = 50, nullable = false)
+    @Column(name = "urlCredencial", length = 200, nullable = false)
     private String urlCredencial;
 
     public Certificaciones() {

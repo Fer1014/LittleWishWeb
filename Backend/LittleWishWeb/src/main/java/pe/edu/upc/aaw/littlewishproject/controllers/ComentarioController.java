@@ -26,7 +26,7 @@ public class ComentarioController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('EMPRESARIO')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public List<ComentarioDTO> listar() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -35,7 +35,7 @@ public class ComentarioController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('EMPRESARIO')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
     }

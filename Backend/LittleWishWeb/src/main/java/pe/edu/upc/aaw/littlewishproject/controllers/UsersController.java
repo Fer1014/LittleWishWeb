@@ -31,16 +31,21 @@ public class UsersController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-        public List<UsersDTO> listar() {
+        public List<UsersDTO> list() {
         return uS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, UsersDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public void eliminar(@RequestParam("id") Integer id) {
+        uS.delete(id);
+    }
 
     @PutMapping
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void modificar(@RequestBody UsersDTO dto) {
+    public void update(@RequestBody UsersDTO dto) {
         ModelMapper m = new ModelMapper();
         Users u = m.map(dto, Users.class);
         uS.insert(u);
@@ -95,6 +100,5 @@ public class UsersController {
     public int contarUsuariosPorRol(@RequestParam String rol) {
         return uS.contarUsuariosPorRol(rol);
     }
-
 
 }

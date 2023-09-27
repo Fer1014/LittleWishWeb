@@ -19,7 +19,7 @@ public class Experiencia_LaboralController {
     private IExperiencia_LaboralService elS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void registrar(@RequestBody Experiencia_LaboralDTO dto) {
         ModelMapper m = new ModelMapper();
         Experiencia_Laboral u = m.map(dto, Experiencia_Laboral.class);
@@ -27,7 +27,7 @@ public class Experiencia_LaboralController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public List<Experiencia_LaboralDTO> listar() {
         return elS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -35,12 +35,12 @@ public class Experiencia_LaboralController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void eliminar(@RequestParam("id") Integer id) {
         elS.delete(id);
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void modificar(@RequestBody Experiencia_LaboralDTO dto) {
         ModelMapper m = new ModelMapper();
         Experiencia_Laboral exp = m.map(dto, Experiencia_Laboral.class);

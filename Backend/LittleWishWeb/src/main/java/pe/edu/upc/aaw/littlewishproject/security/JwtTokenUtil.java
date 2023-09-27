@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class JwtTokenUtil implements Serializable {
+
     private static final long serialVersionUID = -2550185165626007488L;
 
     //milisegundos || 18 minutos, le quitamos mil 18 segundos demo
@@ -52,6 +53,7 @@ public class JwtTokenUtil implements Serializable {
     //generate token for user
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("nombre", "administrador");
         claims.put("role",userDetails.getAuthorities().stream().map(r->r.getAuthority()).collect(Collectors.joining()));
         return doGenerateToken(claims, userDetails.getUsername());
     }

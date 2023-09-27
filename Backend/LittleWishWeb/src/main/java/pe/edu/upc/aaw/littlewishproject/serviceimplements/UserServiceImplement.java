@@ -25,6 +25,11 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
+    public void delete(long Id) {
+        uR.deleteById(Id);
+    }
+
+    @Override
     public List<String[]> usernameBypuntuacion() {
         return uR.usernameBypuntuacion();
     }

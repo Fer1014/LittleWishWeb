@@ -17,7 +17,7 @@ public class SolicitudController {
     @Autowired
     private ISolicitudService soS;
     @PostMapping
-    @PreAuthorize("hasAuthority('EMPRESARIO')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public void Insertar(@RequestBody SolicitudDTO dto){
         ModelMapper m=new ModelMapper();
         Solicitud s=m.map(dto,Solicitud.class);
@@ -25,7 +25,7 @@ public class SolicitudController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public List<SolicitudDTO> listar() {
         return soS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

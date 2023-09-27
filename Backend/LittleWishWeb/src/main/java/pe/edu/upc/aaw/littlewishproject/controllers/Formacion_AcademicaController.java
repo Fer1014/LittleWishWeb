@@ -18,7 +18,7 @@ public class Formacion_AcademicaController {
     private IFormacion_AcademicaService faS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void registrar(@RequestBody Formacion_AcademicaDTO dto) {
         ModelMapper m = new ModelMapper();
         Formacion_Academica fa = m.map(dto, Formacion_Academica.class);
@@ -26,7 +26,7 @@ public class Formacion_AcademicaController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public List<Formacion_AcademicaDTO> listar() {
         return faS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -34,12 +34,12 @@ public class Formacion_AcademicaController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void eliminar(@RequestParam("id") Integer id) {
         faS.delete(id);
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void modificar(@RequestBody Formacion_AcademicaDTO dto) {
         ModelMapper m = new ModelMapper();
         Formacion_Academica fa = m.map(dto, Formacion_Academica.class);

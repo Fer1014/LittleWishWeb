@@ -11,7 +11,7 @@ public class Comentario {
     @Column(name = "comentario", nullable = false, length = 35)
     private String comentario;
     @ManyToOne
-    @JoinColumn(name = "Id_Users", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Users users;
 
     public Comentario() {

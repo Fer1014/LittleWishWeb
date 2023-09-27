@@ -4,28 +4,52 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import pe.edu.upc.aaw.littlewishproject.entities.CurriculumVitae;
 import pe.edu.upc.aaw.littlewishproject.entities.Role;
 
+import javax.persistence.*;
 import java.util.List;
 
 public class UsersDTO {
-    private Long Id;
+    private Long id;
+    private String username;
+    private String password;
+    private Boolean enabled;
     private String Name;
     private String Apellidos;
     private int DNI;
     private String Correo;
     private int Telefono;
     private String Empresa;
-    private String username;
-    private String Password;
-    @JsonIgnore
-    private List<Role> role;
     private CurriculumVitae curriculumVitae;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getName() {
@@ -74,30 +98,6 @@ public class UsersDTO {
 
     public void setEmpresa(String empresa) {
         Empresa = empresa;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public List<Role> getRole() {
-        return role;
-    }
-
-    public void setRole(List<Role> role) {
-        this.role = role;
     }
 
     public CurriculumVitae getCurriculumVitae() {

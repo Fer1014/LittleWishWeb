@@ -25,7 +25,7 @@ public class Solicitud_EstadoController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public List<Solicitud_EstadoDTO> listar() {
         return sS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

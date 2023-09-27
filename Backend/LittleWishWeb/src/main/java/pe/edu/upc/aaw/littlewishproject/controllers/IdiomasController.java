@@ -18,7 +18,7 @@ public class IdiomasController {
     private IIdiomasService iS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void registrar(@RequestBody IdiomasDTO dto) {
         ModelMapper m = new ModelMapper();
         Idiomas u = m.map(dto, Idiomas.class);
@@ -26,7 +26,7 @@ public class IdiomasController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public List<IdiomasDTO> listar() {
         return iS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -34,12 +34,12 @@ public class IdiomasController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void eliminar(@RequestParam("id") Integer id) {
         iS.delete(id);
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('DESARROLLADOR')")
     public void modificar(@RequestBody IdiomasDTO dto) {
         ModelMapper m = new ModelMapper();
         Idiomas i = m.map(dto, Idiomas.class);

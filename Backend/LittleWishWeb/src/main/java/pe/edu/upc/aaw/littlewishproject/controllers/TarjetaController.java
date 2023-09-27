@@ -25,7 +25,7 @@ public class TarjetaController {
         tS.insert(t);
     }
     @GetMapping//obtener
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
     public List<TarjetaDTO> listar(){
         //Usamos get para obtener los
         return  tS.list().stream().map(x->{
