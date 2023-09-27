@@ -22,4 +22,9 @@ public class TarjetaServiceimplement implements ITarjetaService {
     public List<Tarjeta> list() {
         return tR.findAll();
     }
+
+    @Override
+    public void delete(int idTarjeta) {
+        tR.deleteById(idTarjeta);
+    }
 }

@@ -22,4 +22,6 @@ public class RoleServiceImplement implements IRoleService {
     public List<Role> list() {
         return rR.findAll();
     }
+
+
 }

@@ -11,6 +11,14 @@ public class Carreras {
     @Column(name = "nameCarreras", length = 45, nullable = false)
     private String nameCarreras;
 
+    public Carreras() {
+    }
+
+    public Carreras(int ID_Carrera, String nameCarreras) {
+        this.ID_Carrera = ID_Carrera;
+        this.nameCarreras = nameCarreras;
+    }
+
     public int getID_Carrera() {
         return ID_Carrera;
     }

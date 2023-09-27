@@ -34,9 +34,9 @@ public class FavoritosController {
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping
     @PreAuthorize("hasAuthority('EMPRESARIO')")
-    public void eliminar(@PathVariable("id") Integer id){
+    public void eliminar(@RequestParam("id") Integer id) {
         fS.delete(id);
     }
 }

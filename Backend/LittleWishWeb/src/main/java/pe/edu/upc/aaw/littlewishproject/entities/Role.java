@@ -11,7 +11,7 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private long Id;
     @Column(name = "rol",nullable = false, length = 45)
     private String rol;
 
@@ -22,17 +22,17 @@ public class Role {
     public Role() {
     }
 
-    public Role(int id, String rol, Users users) {
+    public Role(long id, String rol, Users users) {
         Id = id;
         this.rol = rol;
         this.users = users;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         Id = id;
     }
 

@@ -11,7 +11,6 @@ public class CurriculumVitaeDTO {
     private Certificaciones certificaciones;
     private Experiencia_Laboral experiencia_laboral;
     private Formacion_Academica formacion_academica;
-    private String mensaje;
 
     public int getID_CV() {
         return ID_CV;
@@ -53,11 +52,4 @@ public class CurriculumVitaeDTO {
         this.formacion_academica = formacion_academica;
     }
 
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
 }

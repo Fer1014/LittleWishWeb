@@ -34,9 +34,9 @@ public class ComentarioController {
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO')")
-    public void eliminar(@PathVariable("id") Integer id) {
+    @DeleteMapping
+    @PreAuthorize("hasAuthority('EMPRESARIO')")
+    public void eliminar(@RequestParam("id") Integer id) {
         cS.delete(id);
     }
 }

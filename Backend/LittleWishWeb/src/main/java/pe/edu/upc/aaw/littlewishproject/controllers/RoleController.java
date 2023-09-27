@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.littlewishproject.dtos.RoleDTO;
+import pe.edu.upc.aaw.littlewishproject.dtos.UsersDTO;
 import pe.edu.upc.aaw.littlewishproject.entities.Role;
+import pe.edu.upc.aaw.littlewishproject.entities.Users;
 import pe.edu.upc.aaw.littlewishproject.servicesinterfaces.IRoleService;
 
 import java.util.List;
@@ -31,6 +33,13 @@ public class RoleController {
             ModelMapper m = new ModelMapper();
             return m.map(x, RoleDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public void update(@RequestBody RoleDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Role r = m.map(dto, Role.class);
+        rS.insert(r);
     }
 
 }

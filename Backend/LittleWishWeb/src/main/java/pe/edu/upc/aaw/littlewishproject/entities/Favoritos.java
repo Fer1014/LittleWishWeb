@@ -10,7 +10,7 @@ public class Favoritos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFavoritos;
     @ManyToOne
-    @JoinColumn(name = "ID_Users", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Users users;
 
     public Favoritos(){

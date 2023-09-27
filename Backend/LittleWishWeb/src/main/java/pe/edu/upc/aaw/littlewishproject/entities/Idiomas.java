@@ -15,7 +15,7 @@ public class Idiomas {
     @Column(name = "nivelEscrito", length = 50, nullable = false)
     private String nivelEscrito;
 
-    @Column(name = "nivelOral", nullable = false)
+    @Column(name = "nivelOral", length = 50, nullable = false)
     private String nivelOral;
 
     public Idiomas() {

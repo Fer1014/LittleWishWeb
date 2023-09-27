@@ -27,7 +27,7 @@ public class ProyectosController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMINISTRADOR') or hasAuthority('EMPRESARIO') or hasAuthority('DESARROLLADOR')")
+    @PreAuthorize("hasAuthority('DESARROLLADOR')")
     public List<ProyectosDTO> listar() {
         return pS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
