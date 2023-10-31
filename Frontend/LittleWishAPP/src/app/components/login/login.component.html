@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<mat-toolbar class="toolbar">
+    <img src="assets/LWLogo.png" alt="Logo de mi aplicación" class="logo-img">
+    <span style="margin-left: 10px;"></span>
+    <Span>LITTLE<br>WISH</Span>
+    <span class="flex"></span>
+    <button mat-button routerLink="">Home</button>
+    <button mat-button routerLink="">Negociantes</button>
+    <button mat-button routerLink="">Desarrolladores</button>
+    <button mat-button routerLink="">Contáctenos</button>
+    <button mat-button routerLink="">Iniciar Sesion/Registrarse</button>
+</mat-toolbar>
+
+<body>
+    <div class="container-form">
+        <div class="logo-info">
+            <div class="logo-info-child">
+                <img src="assets/LWLogo.png" alt="Logo de mi aplicación" class="logo-img">
+                <h2>¡Bienvenido!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl massa, tempus tempus ultricies vitae, condimentum sit amet ligula. Vivamus.</p>
+            </div>     
+        </div>
+        <div class="separator"></div>
+        <div class="form-info">
+            <div class="form-info-child">
+                <h1>Login your Account</h1>
+                <form>
+                    <mat-form-field class="username-button">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Ex.user">
+                    </mat-form-field>
+                    <mat-form-field class="password-button">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Ex.password">
+                    </mat-form-field>
+                    <br>
+                    <button mat-button routerLink="" class="custom-button">Registrarse</button>
+                    <br>
+                    <h2><a href="">Create Account</a></h2>
+                    <h2><a href="">Forgot Password?</a></h2>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
